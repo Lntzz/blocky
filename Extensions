@@ -1,0 +1,39 @@
+{
+  "name": "Extension",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the extension"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of what the extension does"
+    },
+    "version": {
+      "type": "string",
+      "description": "Current version of the extension"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the extension is currently enabled"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "productivity",
+        "security",
+        "developer",
+        "social",
+        "media",
+        "utility"
+      ],
+      "description": "Category of the extension"
+    },
+    "icon_emoji": {
+      "type": "string",
+      "description": "Emoji icon for the extension"
+    },
+    "size_kb": {
+      "type": "number",
