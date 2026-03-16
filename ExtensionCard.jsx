@@ -39,4 +39,35 @@ export default function ExtensionCard({ extension, onToggle, index }) {
                 v{extension.version || "1.0.0"}
               </span>
             </div>
- 
+            <p className="font-sans text-xs text-muted-foreground leading-relaxed line-clamp-2">
+              {extension.description || "No description available"}
+            </p>
+            <div className="flex items-center gap-2 mt-3">
+              {extension.category && (
+                <Badge
+                  variant="outline"
+                  className="font-mono text-[10px] tracking-wider border-border/60 text-muted-foreground px-2 py-0"
+                >
+                  {extension.category?.toUpperCase()}
+                </Badge>
+              )}
+              {extension.size_kb && (
+                <span className="font-mono text-[10px] text-muted-foreground/60">
+                  {extension.size_kb}KB
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="ml-4 shrink-0">
+          <Switch
+            checked={extension.enabled}
+            onCheckedChange={() => onToggle(extension)}
+            className="data-[state=checked]:bg-foreground"
+          />
+        </div>
+      </div>
+    </motion.div>
+  );
+}
